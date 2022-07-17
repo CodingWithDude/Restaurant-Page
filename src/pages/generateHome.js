@@ -16,7 +16,7 @@ function generateHome() {
 
   // Adding textContent
   tagLine.textContent = "Where every ingredient tells a story";
-  callToAction.textContent = "Reserve a table";
+  callToAction.textContent = "Reserve a table today";
 
   // Building HTML Structure
   content.appendChild(tagLine);

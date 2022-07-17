@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Ibarra+Real+Nova:wght@500&family=Nunito+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Ibarra+Real+Nova:wght@500;700&display=swap");
 
 :root {
   /* Colors */
@@ -7,12 +7,13 @@
   --white: #fdfefd;
   --black: #0d1010;
   --green: #abc798;
-  --bgc-container: rgba(0, 0, 0, 0.7);
+  --bgc-container: rgba(0, 0, 0, 0.8);
 
   /* Fonts */
   --ff-title: "Caveat", serif;
   --ff-nav: "Ibarra Real Nova", serif;
-  --ff-content: "Nunito Sans", sans-serif;
+  --ff-content: "Caveat", serif;
+  --ff-legend: "Ibarra Real Nova", serif;
 }
 
 /* CSS RESET */
@@ -25,15 +26,27 @@
   margin: 0;
 }
 
-html,
+html {
+  font-size: 100%;
+  line-height: 1.6;
+
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  height: 100%;
-  width: 100%;
-  background-color: var(--white);
+  overflow-x: hidden;
+  width: 100vw;
+  background: url("/src/asset/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+
+  /* footer support */
+  margin-bottom: 2rem;
 }
 
 .mainContainer {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,10 +54,12 @@ body {
 }
 
 .header {
-  margin: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  width: 100vw;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--white);
 }
 
 .title {
@@ -74,29 +89,30 @@ body {
   cursor: pointer;
 }
 
+/* Content */
+
 .contentContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  background: url("/src/asset/background.jpg");
-  background-size: cover;
-  background-position: center;
+  margin-bottom: 1rem;
 }
+
+/* Home Content */
 
 .homeContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  height: 700px;
-  width: 700px;
-  font-family: var(--ff-content);
-  font-size: 2.5rem;
+  gap: 4rem;
+  height: 50rem;
+  width: 50rem;
+  font-family: var(--ff-legend);
+  font-size: 3rem;
   color: var(--white);
   background: var(--bgc-container);
+  animation: fadeIn 1s;
 }
 
 .subTagLine {
@@ -107,4 +123,192 @@ body {
   width: 60%;
   height: 60%;
   opacity: 1;
+}
+
+/* Menu Content */
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  background: var(--bgc-container);
+  animation: fadeIn 1s;
+  margin-bottom: 1.5rem;
+}
+
+.fieldset {
+  margin: 2rem 2rem;
+  border: 2px solid var(--white);
+}
+
+.legend {
+  font-family: var(--ff-legend);
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.contentSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 2rem;
+  font-family: var(--ff-content);
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.contentSection p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subText {
+  margin-top: 1rem;
+  font-family: var(--ff-nav);
+  font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 25rem;
+}
+
+/* Contact Content */
+
+.contactContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 45rem;
+  width: 50rem;
+  font-size: 2rem;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  color: var(--white);
+  background: var(--bgc-container);
+  animation: fadeIn 1s;
+  margin-bottom: 1.5rem;
+}
+
+.contactMap {
+  width: 100%;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+  font-family: var(--ff-nav);
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--bgc-container);
+}
+
+.fa-github {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 80%;
+  }
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 425px) {
+  html {
+    font-size: 40%;
+  }
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 290px) {
+  html {
+    font-size: 35%;
+  }
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+  }
 }
