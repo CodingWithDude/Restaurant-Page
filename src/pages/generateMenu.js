@@ -1,9 +1,8 @@
 function generateMenu() {
-  const menuContent = document.createElement("div");
+  // Content
+  const content = document.createElement("div");
 
-  menuContent.textContent = "menu";
-
-  return menuContent;
+  return content;
 }
 
 export default generateMenu;
